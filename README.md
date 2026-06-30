@@ -82,7 +82,7 @@ FILOSOFIA DE ESTE REPOSITORIO
 Este repositorio no busca mostrar únicamente resultados.
 Tambien documenta errores, correcciones, mejores y todo el proceso de aprendizaje.
 Creo que aprender programación consiste en construir conocimiento paso a paso,
-y este proyexto refleja precisamente el recorrido.
+y este proyecto refleja precisamente el recorrido.
 
 AUTOR
 Roberto Jesus Hernandez Ramirez (Sioryx)
