@@ -6,7 +6,8 @@ int main() {
 	while (contador < 6) {
 		printf("Por favor ingrese la cantidad de municion del cargador\n");
 		scanf_s("%d", &municion[contador]); 
-		//Aqui me generaba error por usar &municion[6] 
+		// Se utiliza el índice 'contador' para acceder a una posición válida del arreglo.
+		// Acceder a municion[6] provocaría un error porque el arreglo tiene índices de 0 a 5.
 		contador++;
 	}
 	for (int i = 0; i < 6; i++) {
