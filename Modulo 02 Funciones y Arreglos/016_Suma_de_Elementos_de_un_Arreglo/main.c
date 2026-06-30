@@ -4,7 +4,7 @@ int main(void) {
 
 	int puntuaciones[5];
 	int contador = 0;
-	int suma = 0; //Se declara la variable suma para almacenar los ciclos del for
+	int suma = 0; // Acumula la suma de todas las puntuaciones ingresadas.
 	while (contador < 5) {
 		printf("Ingrese sus puntuaciones:\n");
 		
@@ -14,7 +14,7 @@ int main(void) {
 	for (int i = 0; i < 5; i++) {
 		printf("Partida %d: %d puntos\n", i + 1, puntuaciones[i]);
 		suma = suma + puntuaciones[i]; 
-		//Aqui se ejecuta cada cilo y se va añadiendo a la variable
+		// Acumula cada puntuación para obtener el total al finalizar el recorrido.
 		}
 	
 	printf("Puntos totales: %d puntos\n", suma);
