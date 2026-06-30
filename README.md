@@ -90,5 +90,5 @@ GitHub
 httpss://github.com/sioryx
 
 
-"Todo gran proyexto comenzó alguna vez con un simple 
+"Todo gran proyecto comenzó alguna vez con un simple 
 printf("Hola mundo");
