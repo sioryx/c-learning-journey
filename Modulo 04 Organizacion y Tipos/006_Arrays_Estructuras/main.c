@@ -16,18 +16,27 @@ int main(void)
 	inicializarPersonaje(&equipo[0], "Cloud", 100, 25, Guerrero);
 	inicializarPersonaje(&equipo[1], "Tifa", 90, 20, Ladron);
 	inicializarPersonaje(&equipo[2], "Barret", 125, 30, Guerrero);
-	inicializarPersonaje(&equipo[3], "Aerith",80 , 15, Mago);
+	inicializarPersonaje(&equipo[3], "Aerith", 80, 15, Mago);
 	int tamanio = sizeof(equipo) / sizeof(equipo[0]);
 
 	mostrarEquipo(&equipo, tamanio);
-		
+
 	mostrarPersonaje(&goblin);
 	mostrarPersonaje(&Heroe);
 	mostrarPersonaje(&Jefe);
 
 	ejecutarCombate(&Heroe, &goblin);
 
+	int vivos = hayPersonajesVivos(equipo, tamanio);
 
+	if (vivos == 0)
+	{
+		printf("No hay personajes vivos\n");
+	}
+	else
+	{
+		printf("Si hay personajes vivos\n");
+	}
 
 	return 0;
 }
