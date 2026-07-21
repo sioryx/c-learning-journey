@@ -4,7 +4,7 @@
 #include "personaje.h"
 #include "combate.h"
 #include "equipo.h"
-void ejecutarCombateEquipos(Personaje* equipo, Personaje* Enemigos, int tamanio);
+#include "Interfaz.h"
 
 int main(void)
 {

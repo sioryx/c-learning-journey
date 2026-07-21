@@ -2,6 +2,8 @@
 #define COMBATE_H
 #include "personaje.h"
 #include "equipo.h"
+
+
 typedef enum Comando
 {
 	Atacar = 1,

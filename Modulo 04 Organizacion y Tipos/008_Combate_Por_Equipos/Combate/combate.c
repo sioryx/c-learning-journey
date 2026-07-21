@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "personaje.h"
 #include "combate.h"
-
+#include "Interfaz.h"
 
 void iniciarCombate(const Personaje* jugador, const Personaje* enemigo)
 {
@@ -39,6 +39,9 @@ void ejecutarComandoCombate(Comando accion, Personaje* atacante, Personaje* defe
 	{
 	case Atacar:
 		ataque(atacante, defensor);
+		mostrarAtaque(atacante, defensor);
+		mostrarDanio(defensor, calculoDanio(atacante));
+		mostrarEstado(defensor);
 		break;
 	case Defender:
 		defendiendo(atacante);
@@ -57,7 +60,11 @@ void ataque(Personaje* atacante, Personaje* defensor)
 {
 	int danio = calculoDanio(atacante);
 	defensor->vida -= danio;
-	
+	if (defensor->vida < 0)
+	{
+		defensor->vida = 0;
+	}
+
 }
 void defendiendo(Personaje* personaje)
 {
@@ -94,7 +101,7 @@ void ejecutarCombate(Personaje* atacante, Personaje* defensor)
 }
 void iniciarCombateEquipos(void)
 {
-	printf("Aparecio un grupo de enemigos");
+	printf("Aparecio un grupo de enemigos\n");
 
 	printf("Comienza un combate\n");
 
@@ -116,8 +123,10 @@ void ejecutarTurnoEquipo(Personaje* equipo, Personaje* Enemigos, int tamanio)
 		{
 			break;
 		}
+		turnoJugador();
 		mostrarMenuCombate();
 		accion = leerAccion();
+
 		ejecutarComandoCombate(accion, &equipo[i], objetivo);
 		
 	}
@@ -137,16 +146,29 @@ void ejecutarTurnoEnemigo(Personaje* Enemigos, Personaje* equipo, int tamanio)
 		{
 			break;
 		}
+		turnoEnemigo();
 		ejecutarComandoCombate(Atacar, &Enemigos[i], objetivo);
 	}
 }
 void ejecutarCombateEquipos(Personaje* equipo, Personaje* Enemigos, int tamanio)
 {
 	iniciarCombateEquipos();
+
 	while (hayPersonajesVivos(equipo, tamanio) && hayPersonajesVivos(Enemigos, tamanio))
 	{
+		mostrarTituloEquipo();
+		mostrarEstadoEquipo(equipo, tamanio);
+		mostrarTituloEnemigo();
+		mostrarEstadoEquipo(Enemigos, tamanio);
 		ejecutarTurnoEquipo(equipo, Enemigos, tamanio);	
 		ejecutarTurnoEnemigo(Enemigos, equipo, tamanio);	
 	}
-	finalizarCombate();
+	if (hayPersonajesVivos(equipo, tamanio))
+	{
+		mostrarVictoria();
+	}
+	else
+	{
+		mostrarDerrota();
+	}
 }
