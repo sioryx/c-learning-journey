@@ -9,7 +9,16 @@ void mostrarEquipo(Personaje* equipo, int tamanio)
 		mostrarPersonaje(&equipo[i]);
 	}
 }
+Personaje* obtenerPersonaje(Personaje equipo[], int cantidad, int indice)
+{
 
+	if (indice < 0 || indice >= cantidad)
+
+	{
+		return NULL;
+	}
+	return &equipo[indice];
+}
 int hayPersonajesVivos(Personaje* equipo, int cantidad)
 {
     for (int i = 0; i < cantidad; i++)

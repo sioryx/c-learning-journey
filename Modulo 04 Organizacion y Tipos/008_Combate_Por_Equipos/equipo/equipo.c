@@ -9,27 +9,18 @@ void mostrarEquipo(Personaje* equipo, int tamanio)
 		mostrarPersonaje(&equipo[i]);
 	}
 }
-Personaje* obtenerPersonaje(Personaje equipo[], int cantidad, int indice)
-{
 
-	if (indice < 0 || indice >= cantidad)
-
-	{
-		return NULL;
-	}
-	return &equipo[indice];
-}
 int hayPersonajesVivos(Personaje* equipo, int cantidad)
 {
-    for (int i = 0; i < cantidad; i++)
-    {
-        if (equipo[i].vida > 0)
-        {
-            return 1;
-        }
-    }
+	for (int i = 0; i < cantidad; i++)
+	{
+		if (equipo[i].vida > 0)
+		{
+			return 1;
+		}
+	}
 
-    return 0;
+	return 0;
 }
 int contarPersonajesVivos(Personaje* equipo, int cantidad)
 {
@@ -46,9 +37,24 @@ int contarPersonajesVivos(Personaje* equipo, int cantidad)
 }
 Personaje* obtenerPersonaje(Personaje equipo[], int cantidad, int indice)
 {
+
 	if (indice < 0 || indice >= cantidad)
+
 	{
 		return NULL;
 	}
 	return &equipo[indice];
+}
+
+Personaje* obtenerPrimerPersonajeVivo(Personaje* equipo, int cantidad)
+{
+	for (int i = 0; i < cantidad; i++)
+	{
+		if (equipo[i].vida > 0)
+		{
+			return &equipo[i];
+		}
+	}
+
+	return NULL;
 }
